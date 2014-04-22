@@ -4,9 +4,12 @@ import os, sys, imp
 
 if sys.argv[1] in ('-h', '--help'):
     print """\
-Usage: wsgiserver "example.wsgi" (or "example.py", etc...)
-  This basicly runs a single request against the WSGI app, taking the request on stdin, showing output on stdout.
-  If you need to more closely mimic a real server you need to use the appropriate environment variables too.\
+Usage: wsgiserver "examples/example1.wsgi" (or "examples/example2.py", etc...)
+  This basically runs a single request against the WSGI app, taking the request
+  on stdin, showing output on stdout. If you need to more closely mimic a real
+  server you need to use the appropriate environment variables too.
+  Example:
+    printf 'GET /whatever HTTP/1.1\\r\\nHost: wherever\\r\\n\\r\\n' | wsgirequest examples/example1.wsgi\
 """
     quit()
 elif sys.argv[1] == '--':
